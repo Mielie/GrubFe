@@ -2,7 +2,6 @@ import * as Location from "expo-location";
 import {
   View,
   StyleSheet,
-  Button,
   TouchableOpacity,
   ActivityIndicator,
   Text,

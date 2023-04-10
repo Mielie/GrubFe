@@ -1,11 +1,4 @@
-import {
-  View,
-  StyleSheet,
-  Button,
-  Text,
-  TouchableOpacity,
-  Image,
-} from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 
 export const BottomBar = ({ page, setPage, totalItems }) => {
   const numPages = Math.floor(totalItems / 10);
@@ -16,12 +9,6 @@ export const BottomBar = ({ page, setPage, totalItems }) => {
   };
   return (
     <View style={styles.container}>
-      {/* <Button
-        title="<---"
-        
-        disabled={page === 0}
-        onPress={() => changePage(-1)}
-      /> */}
       <TouchableOpacity
         style={styles.button}
         disabled={page === 0}
@@ -35,12 +22,6 @@ export const BottomBar = ({ page, setPage, totalItems }) => {
       <Text>
         Page {page + 1} / {numPages + 1}
       </Text>
-      {/* <Button
-        title="--->"
-        
-        disabled={page === numPages}
-        onPress={() => changePage(1)}
-      /> */}
       <TouchableOpacity
         style={styles.button}
         disabled={page === numPages}

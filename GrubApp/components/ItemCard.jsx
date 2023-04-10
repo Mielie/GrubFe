@@ -1,14 +1,8 @@
 import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 
-export const ItemCard = ({
-  navigation,
-  item,
-  background,
-  home,
-  setViewDetailItem,
-}) => {
+export const ItemCard = ({ navigation, item, background, home }) => {
   const { user } = useContext(UserContext);
 
   const yours = user.user.username === item.user.username;
