@@ -5,6 +5,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { FilterBar } from "./FilterBar";
 import { ItemCard } from "./ItemCard";
 import { BottomBar } from "./BottomBar";
+import { api } from "../apiURL";
 import axios from "axios";
 
 export const ViewItems = ({ navigation }) => {
@@ -24,7 +25,7 @@ export const ViewItems = ({ navigation }) => {
     setItemsLoading(true);
     axios
       .get(
-        `https://grub-group-project.onrender.com/api/items/${location[1]}/${location[0]}?page=${page}&limit=10&range=${range}`,
+        `${api}/api/items/${location[1]}/${location[0]}?page=${page}&limit=10&range=${range}`,
         {
           headers,
         }

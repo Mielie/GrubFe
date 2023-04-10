@@ -1,12 +1,7 @@
-import { View, Text, StyleSheet } from "react-native";
-import { Marker, Callout } from "react-native-maps";
-import { UserContext } from "../contexts/UserContext";
-import { useContext } from "react";
-import { Svg, Image as ImageSvg } from "react-native-svg";
+import { View } from "react-native";
+import { Marker } from "react-native-maps";
 
-export const ItemMarker = ({ item, navigation, setIsModalVisible, setSelectedItem, selectedItem }) => {
-  const { user } = useContext(UserContext);
-
+export const ItemMarker = ({ item, setIsModalVisible, setSelectedItem }) => {
   return (
     <View>
       <Marker
@@ -16,13 +11,11 @@ export const ItemMarker = ({ item, navigation, setIsModalVisible, setSelectedIte
           longitude: item.location.coordinates[0],
         }}
         onPress={() => {
-          setSelectedItem(item)
-          setIsModalVisible(true)
+          setSelectedItem(item);
+          setIsModalVisible(true);
         }}
         pinColor="#9C0444"
-      >
-      </Marker>
+      ></Marker>
     </View>
   );
 };
-

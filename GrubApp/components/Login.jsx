@@ -1,4 +1,5 @@
 import axios from "axios";
+import { api } from "../apiURL";
 import React, { useState, useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import {
@@ -25,7 +26,7 @@ export const Login = ({ navigation, route }) => {
     setCheckingCredentials(true);
     setAuthError(null);
     axios
-      .post("https://grub-group-project.onrender.com/api/auth", {
+      .post(`${api}/api/auth`, {
         username,
         password,
       })

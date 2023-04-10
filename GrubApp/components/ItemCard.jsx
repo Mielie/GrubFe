@@ -1,7 +1,6 @@
 import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
-import axios from "axios";
 
 export const ItemCard = ({
   navigation,
@@ -121,7 +120,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 10,
   },
-    textBox: {
+  textBox: {
     height: "100%",
     flex: 1,
     flexDirection: "column",

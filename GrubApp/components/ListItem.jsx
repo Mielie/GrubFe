@@ -18,6 +18,7 @@ import { SelectList } from "react-native-dropdown-select-list";
 import axios from "axios";
 import { UserContext } from "../contexts/UserContext";
 import { Calendar } from "react-native-calendars";
+import { api } from "../apiURL";
 import * as ImagePicker from "expo-image-picker";
 
 const ItemSchema = Yup.object().shape({
@@ -41,7 +42,7 @@ export const ListItem = ({ navigation }) => {
   useEffect(() => {
     setLoadingCategories(true);
     axios
-      .get("https://grub-group-project.onrender.com/api/categories", {
+      .get(`${api}/api/categories`, {
         headers,
       })
       .then(({ data }) => {
@@ -129,7 +130,7 @@ export const ListItem = ({ navigation }) => {
     cloudinaryUpload().then((image_url) => {
       newItem.image_url = image_url;
       return axios
-        .post("https://grub-group-project.onrender.com/api/items", newItem, {
+        .post(`${api}/api/items`, newItem, {
           headers,
         })
         .then((response) => {

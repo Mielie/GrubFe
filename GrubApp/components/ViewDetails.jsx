@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { UserContext } from "../contexts/UserContext";
+import { api } from "../apiURL";
 import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
 
@@ -28,7 +29,7 @@ export const ViewDetails = ({ navigation, route }) => {
   useEffect(() => {
     setLoadingDetails(true);
     axios
-      .get(`https://grub-group-project.onrender.com/api/items/${id}`, {
+      .get(`${api}/api/items/${id}`, {
         headers,
       })
       .then(({ data }) => {
@@ -44,14 +45,14 @@ export const ViewDetails = ({ navigation, route }) => {
         setLoadingDetails(false);
       })
       .catch((err) => {
-        navigation.navigate("Login")
-    });
+        navigation.navigate("Login");
+      });
   }, []);
 
   const deleteItem = () => {
     setIsDeleting(true);
     return axios
-      .delete(`https://grub-group-project.onrender.com/api/items/${id}`, {
+      .delete(`${api}/api/items/${id}`, {
         headers,
       })
       .then(() => {
@@ -68,7 +69,7 @@ export const ViewDetails = ({ navigation, route }) => {
     setIsReserving(true);
     const body = { username: user.user.username };
     return axios
-      .patch(`https://grub-group-project.onrender.com/api/items/${id}`, body, {
+      .patch(`${api}/api/items/${id}`, body, {
         headers,
       })
       .then(({ data }) => {
